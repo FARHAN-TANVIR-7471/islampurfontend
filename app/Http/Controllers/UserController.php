@@ -23,7 +23,7 @@ class UserController extends Controller
         $email = $request->input('email');
         $password = $request->input('password');
         
-        $response = Http::post('https://islampurbackend.islampurmarket.com/api/login',[
+        $response = Http::post('http://127.0.0.1:8081/api/login',[
                       'email'=>$email,
                       'password'=>$password
         ]);
@@ -50,11 +50,11 @@ class UserController extends Controller
 
     public function userprofileget(){
 
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
-        $response = Http::get("https://islampurbackend.islampurmarket.com/api/order");
+        $response = Http::get("http://127.0.0.1:8081/api/order");
         $order = json_decode($response);
 
         $age = session('user');
@@ -71,7 +71,7 @@ class UserController extends Controller
         }else if ($age==2) {
 
             $user_id = $_COOKIE['user'];
-            $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+            $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
             $user = json_decode($userresponse);
             $abc= $user->data->name;
             $def = 'profile';
@@ -98,7 +98,7 @@ class UserController extends Controller
             else if($age==2){
 
                 $user_id = $_COOKIE['user'];
-                $response = Http::post('https://islampurbackend.islampurmarket.com/api/cart', [
+                $response = Http::post('http://127.0.0.1:8081/api/cart', [
                     'ip_address' => request()->ip(),
                     'user_id' => $user_id,
                     'product_id' => request()->pdtId,
@@ -120,7 +120,7 @@ class UserController extends Controller
         $phone = $request->input('phone');
         $password =$request->input('password');
 
-        $response = Http::post('https://islampurbackend.islampurmarket.com/api/usersignin',[
+        $response = Http::post('http://127.0.0.1:8081/api/usersignin',[
                       'name'=>$name,
                       'email'=>$email,
                       'phone'=>$phone, 
@@ -132,7 +132,7 @@ class UserController extends Controller
 	/*user home page*/
     public function userHome(){
 
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -150,9 +150,10 @@ class UserController extends Controller
         }else if ($age==2) {
 
             $user_id = $_COOKIE['user'];
-            $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+            $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
             $user = json_decode($userresponse);
-            $abc= $user->data->name;
+            //$abc= $user->data->name;
+            $abc = 'Farhan';
             $def = 'profile';
             return view('userInterface.index',compact('results','totalproduct','abc','def'));
         }
@@ -161,7 +162,7 @@ class UserController extends Controller
     /*productDescription*/
     public function productDescription($id){
 
-        $response = Http::get("https://islampurbackend.islampurmarket.com/api/products/$id");
+        $response = Http::get("http://127.0.0.1:8081/api/products/$id");
         $results = json_decode($response);
         //dd($results);
         $totalproduct = $results->totalproduct;
@@ -181,9 +182,10 @@ class UserController extends Controller
         }else if ($age==2) {
 
             $user_id = $_COOKIE['user'];
-            $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+            $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
             $user = json_decode($userresponse);
-            $abc= $user->data->name;
+            //$abc= $user->data->name;
+            $abc = 'Farhan';
             $def = 'profile';
             return view('userInterface.singleproduct',compact('results','totalproduct','abc','def'));
         }
@@ -195,7 +197,7 @@ class UserController extends Controller
     public function productshow(Request $request){
         $name = $request->input('name');
 
-        $response = Http::post('https://islampurbackend.islampurmarket.com/api/showproducts/',['name'=>$name ]);
+        $response = Http::post('http://127.0.0.1:8081/api/showproducts/',['name'=>$name ]);
         //dd($response);
 
         $data = $response->body();
@@ -224,7 +226,7 @@ class UserController extends Controller
             }else if ($age==2) {
 
                 $user_id = $_COOKIE['user'];
-                $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+                $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
                 $user = json_decode($userresponse);
                 $abc= $user->data->name;
                 $def = 'profile';
@@ -240,7 +242,7 @@ class UserController extends Controller
 
         $data = $id;
         //dd($data);
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -258,7 +260,7 @@ class UserController extends Controller
             return view('userInterface.product',compact('results','totalproduct','abc','def','data'));
         }else if ($age==2) {
             $user_id = $_COOKIE['user'];
-            $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+            $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
             $user = json_decode($userresponse);
             $abc= $user->data->name;
             $def = 'profile';
@@ -270,7 +272,7 @@ class UserController extends Controller
     /*allproduct*/
     public function allproduct(){
 
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -288,7 +290,7 @@ class UserController extends Controller
         }else if ($age==2) {
 
             $user_id = $_COOKIE['user'];
-            $userresponse = Http::get('https://islampurbackend.islampurmarket.com/api/userdata/'.$user_id);
+            $userresponse = Http::get('http://127.0.0.1:8081/api/userdata/'.$user_id);
             $user = json_decode($userresponse);
             $abc= $user->data->name;
             $def = 'profile';
@@ -299,7 +301,7 @@ class UserController extends Controller
     } 
     /*about*/
     public function about(){
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -308,7 +310,7 @@ class UserController extends Controller
 
     /*contact*/
     public function contact(){
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -322,7 +324,7 @@ class UserController extends Controller
         $contactnumber = $request->input('contactnumber');
         $contactcomment = $request->input('contactcomment');
 
-        $response = Http::post('https://islampurbackend.islampurmarket.com/api/contructinsert/',[
+        $response = Http::post('http://127.0.0.1:8081/api/contructinsert/',[
                       'name'=>$contactusername,
                       'email'=>$contactemail,
                       'phone'=>$contactnumber, 
@@ -336,7 +338,7 @@ class UserController extends Controller
         
         $product_type = $request->category;
         $data['product_type'] = $product_type;
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -346,7 +348,7 @@ class UserController extends Controller
     
     /*payment*/
     public function payment(){
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -356,7 +358,7 @@ class UserController extends Controller
     /*shipping*/
 
     public function shipping(){
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 
@@ -365,7 +367,7 @@ class UserController extends Controller
 
    /* returnpolicy*/
    public function returnpolicy(){
-        $response = Http::get('https://islampurbackend.islampurmarket.com/api/products/');
+        $response = Http::get('http://127.0.0.1:8081/api/products/');
         $results = json_decode($response);
         $totalproduct = $results->totalproduct;
 

@@ -5,15 +5,30 @@
   <div class="row ">
      <div class="col-md-12">
       <div class="callbacks_container">
-        <div class="slider-wrapper">
+        <div class="slider-wrapper m-5">
           <div class="">
             <div class="slider-item">
-              <img class="banner-image" src="{{URL::asset('image/MenBanner.jpg')}}">
+              <img class="banner-image" src="{{URL::asset('image/b1.png')}}">
             </div>
           </div>
           <div class="">
             <div class="slider-item">
-              <img class="banner-image" src="{{URL::asset('image/WomenBanner.jpg')}}">
+              <img class="banner-image" src="{{URL::asset('image/b2.png')}}">
+            </div>
+          </div>
+          <div class="">
+            <div class="slider-item">
+              <img class="banner-image" src="{{URL::asset('image/b3.png')}}">
+            </div>
+          </div>
+          <div class="">
+            <div class="slider-item">
+              <img class="banner-image" src="{{URL::asset('image/b4.png')}}">
+            </div>
+          </div>
+          <div class="">
+            <div class="slider-item">
+              <img class="banner-image" src="{{URL::asset('image/b5.png')}}">
             </div>
           </div>
         </div>

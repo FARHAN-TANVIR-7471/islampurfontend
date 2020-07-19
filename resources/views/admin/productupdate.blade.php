@@ -13,118 +13,191 @@
                 
                 <form action="/productupdate" method="post" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="_method" value="PUT">
                     <input type="hidden" name="id" value="{{$results->data->id}}">
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="exampleFormControlInput1">Product Name: </label>
-                        
-                            <input type="text" name="brand" class="form-control" placeholder="Product Name" value="{{$results->data->name}}">
-                        </div>
-                        <div class="form-group col-md-3">
-                            {{csrf_field()}}
-                          <label for="exampleFormControlSelect1">Gender</label>
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Product Brand: </label>
+                                <input type="text" name="brand" class="form-control" placeholder="Product Name" value="{{$results->data->name}}">
+                            </div>
 
-                            <select name="gender" class="form-control" id="exampleFormControlSelect1" value="{{$results->data->name}}">
-                                <option value="1">Male</option>
-                                <option value="2">Female</option>
-                                                      
-                            </select>
-                        </div>
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Store: </label>
+                                {{csrf_field()}}
+                                <input type="text" name="number" class="form-control" id="exampleFormControlInput1" placeholder="number" value="{{$results->data->number}}">
+                            </div>
 
-                        <div class="form-group col-md-3">
-                            {{csrf_field()}}
-                          <label for="exampleFormControlSelect1">Cuntom</label>
+                            <div class="form-group col-md-4">
+                                {{csrf_field()}}
+                              <label for="exampleFormControlSelect1">Product Type</label>
 
-                            <select name="custom" class="form-control" id="exampleFormControlSelect1" value="{{$results->data->name}}">
-                                <option value="yes">Yes</option>
-                                <option value="no">No</option>
-                                                      
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            {{csrf_field()}}
-                            <label for="exampleFormControlSelect1">Product Type</label>
-
-                            <select name="product_type" class="form-control" value="{{$results->data->name}}">
-                                <option value="1">T-Shirts</option>
-                                <option value="2">Shirts</option>
-                                <option value="3">Panjabi</option>
-                                <option value="4">Plo Shirts</option>
-                                <option value="5">Jeans</option>
-                                <option value="6">Pant</option>
-                                <option value="7">Traditional Clothing</option>
-                                <option value="8">Saree</option>
-                                <option value="9">Shalwar Kameez</option>
-                                <option value="10">Kurtis</option>
-                                <option value="11">Chothing</option>
-                                <option value="12">Women Bags</option>                                                      
-                            </select>
-                            
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label for="exampleFormControlInput1">Price: </label>
-                            {{csrf_field()}}
-                            <input type="text" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Price" value="{{$results->data->price}}">
+                                <select name="product_type_id" class="form-control" id="exampleFormControlSelect1">
+                                    <option value="1">Print</option>
+                                    <option value="2">YardFabtics</option>
+                                    <option value="3">3 Pieces</option>
+                                    <option value="4">Lungi</option>
+                                    <option value="5">Sale</option>             
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group col-md-3">
-                            <label for="exampleFormControlTextarea1">Discount %</label>
-                            <!-- <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea> -->
-                            {{csrf_field()}}
-                            <input type="number" name="discount" class="form-control" id="exampleFormControlInput1" placeholder="Product Discount" value="{{$results->data->discount}}">
-                        </div>
-                        
-                    </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlInput1">Price: </label>
+                                {{csrf_field()}}
+                                <input type="text" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Price" value="{{$results->data->price}}">
+                            </div>
 
-                    <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="exampleFormControlTextarea1">Discount</label>
+                                {{csrf_field()}}
+                                <input type="number" name="discount" class="form-control" id="exampleFormControlInput1" placeholder="Product Discount in %" value="{{$results->data->discount}}">
+                            </div>
+                        </div>
 
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlInput1">Number: </label>
-                            {{csrf_field()}}
-                            <input type="text" name="number" class="form-control" id="exampleFormControlInput1" placeholder="number" value="{{$results->data->number}}">
-                        </div>
-                        
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlInput1">Product Color: </label>
-                            {{csrf_field()}}
-                            <input type="text" name="color" class="form-control" id="exampleFormControlInput1" placeholder="Product Color" value="{{$results->data->color}}">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlInput1">Size: </label>
-                            {{csrf_field()}}
-                            <input type="text" name="size" class="form-control" id="exampleFormControlInput1" placeholder="size.." value="{{$results->data->size}}">
-                        </div>
-                    </div>
+                        <hr>
 
-                    <div class="form-row">
-                        <div class="form-group col-md-12">
-                            <label for="exampleFormControlInput1">Description: </label>
-                            {{csrf_field()}}
-                            <input name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" value="{{$results->data->description}}"></input>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <div class="" {{ $errors->has('image') ? 'has-error' : '' }}>
+                        <hr>
+
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color: </label>
+                                {{csrf_field()}}
+                                <input type="text" name="color" class="form-control" id="exampleFormControlInput1" placeholder="Product Color" value="{{$results->data->color}}">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
                                 <label for="image">Image : </label>
                                 <input type="file" name="image" id="image" class="form-control">
                                 <span class="text-danger"> {{ $errors->first('image') }}</span>
                             </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 2</label>
+                                {{csrf_field()}}
+                                <input type="text" name="colortwo" class="form-control" id="exampleFormControlInput1" placeholder="Product Color" value="{{$results->data->color_1}}">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image : </label>
+                                <input type="file" name="imagetwo" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
                         </div>
-                        <div class="form-group col-md-8">
-                            <img src="{{$results->data->image}}" height=150 width=150>
+
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 3 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorthree" class="form-control" id="exampleFormControlInput1" placeholder="Product Color" value="{{$results->data->color_2}}">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 3 </label>
+                                <input type="file" name="imagethree" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 4</label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorfour" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 4 </label>
+                                <input type="file" name="imagefour" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
                         </div>
-                        
-                        <!-- <div class="form-group" {{ $errors->has('image') ? 'has-error' : '' }}>
-                            <label for="image">Image : </label>
-                            <input type="file" name="image" id="image" class="form-control">
-                            <span class="text-danger"> {{ $errors->first('image') }}</span>
-                        </div> -->
-                    </div>
+
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 5 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorfive" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 5 </label>
+                                <input type="file" name="imagefive" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 6 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorsix" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 6 </label>
+                                <input type="file" name="imagesix" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 7 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorseven" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 7 </label>
+                                <input type="file" name="imageseven" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 8 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="coloreight" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 8 </label>
+                                <input type="file" name="imageeight" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+                        </div>
+
+                        <div class="form-row">                            
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 9 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colornine" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 9 </label>
+                                <input type="file" name="imagenine" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+
+                            <div class="form-group col-md-3">
+                                <label for="exampleFormControlInput1">Product Color 10 </label>
+                                {{csrf_field()}}
+                                <input type="text" name="colorten" class="form-control" id="exampleFormControlInput1" placeholder="Product Color">
+                            </div>
+
+                            <div class="form-group col-md-3" {{ $errors->has('image') ? 'has-error' : '' }}>
+                                <label for="image">Image 10 </label>
+                                <input type="file" name="imageten" id="image" class="form-control">
+                                <span class="text-danger"> {{ $errors->first('image') }}</span>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="exampleFormControlInput1">Description: </label>
+                                {{csrf_field()}}
+                                <!-- <input type="text" name="season" class="form-control" id="exampleFormControlInput1" placeholder="Season"> -->
+                                <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                        </div>
 
                     <button type="submit" class="btn btn-primary">Submit</button>
 

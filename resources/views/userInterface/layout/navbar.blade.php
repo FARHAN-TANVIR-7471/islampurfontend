@@ -54,7 +54,7 @@
           </li>
           
           <li class="nav-item active pl-2 pr-2">
-            <a class="nav-link text-white font-weight-bold" href="{{url('/product/1')}}">Print</a>
+            <a class="nav-link text-white font-weight-bold" href="{{url('/product/1')}}">Prints</a>
           </li>
           <li class="nav-item active pl-2 pr-2">
             <a class="nav-link text-white font-weight-bold" href="{{url('/product/2')}}">Yard Fabrics</a>

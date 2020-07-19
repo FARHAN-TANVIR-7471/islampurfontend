@@ -65,7 +65,16 @@
                                     </td>
                                     <td class="text-center">
                                         <!-- <a href="#" class="view" title="View" data-toggle="tooltip"><i style="color: #03A9F4" class="material-icons">&#xE417;</i></a> -->
-                                        <a href="{{'/admin/productupdate/' . $user->id}}" class="edit" title="Edit" data-toggle="tooltip"><i style="color: #FFC107;" class="material-icons">&#xE254;</i></a>                                    
+                                        <a href="{{'/admin/productupdate/' . $user->id}}" class="edit" title="Edit" data-toggle="tooltip"><i style="color: #FFC107;" class="material-icons">&#xE254;</i></a>
+
+                                        <form action="/productdelete" method="post" enctype="multipart/form-data">
+                                            @csrf
+                                            <input type="hidden" name="id" value="{{$user->id}}">
+
+                                            <button class="btn btn-danger btn-sm rounded-0" type="submit"data-toggle="tooltip" data-placement="top" title="Delete"><i class="fa fa-trash"></i></button>
+                                        </form> 
+
+                                        <!-- <a href="{{'/admin/productdelete/' . $user->id}}" class="edit" title="Edit" data-toggle="tooltip"><i style="color: #FFC107;" class="material-icons">&#xE254;</i></a>   -->                                 
                                     </td>
                                 </tr>
                                 @endforeach                                            
@@ -149,84 +158,6 @@
                         </div>
 
                         <hr>
-
-                        <!-- <div class="form-row">
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type</label>
-                                <input type="text" name="product_type" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price: </label>
-                                {{csrf_field()}}
-                                <input type="text" name="price" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type 2</label>
-
-                                <input type="text" name="product_typetwo" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">
-                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price 2 </label>
-                                {{csrf_field()}}
-                                <input type="text" name="pricetwo" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type 3</label>
-                                <input type="text" name="product_typethree" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price 3</label>
-                                {{csrf_field()}}
-                                <input type="text" name="pricethree" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type 4</label>
-
-                                <input type="text" name="product_typefour" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">
-                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price 4</label>
-                                {{csrf_field()}}
-                                <input type="text" name="pricefour" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type 5</label>
-                                <input type="text" name="product_typefive" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price 5 </label>
-                                {{csrf_field()}}
-                                <input type="text" name="pricefive" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            <div class="form-group col-md-3">
-                                {{csrf_field()}}
-                                <label for="exampleFormControlSelect1">Product Type 6</label>
-
-                                <input type="text" name="product_typesex" class="form-control" id="exampleFormControlInput1" placeholder="Product Type">
-                                
-                            </div>
-                            <div class="form-group col-md-3">
-                                <label for="exampleFormControlInput1">Price 6 </label>
-                                {{csrf_field()}}
-                                <input type="text" name="pricesex" class="form-control" id="exampleFormControlInput1" placeholder="Price">
-                            </div>
-                            
-                        </div> -->
 
                         <hr>
 

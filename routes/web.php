@@ -51,12 +51,12 @@ Route::get('/admin/product','AdminController@product');
 /*product insert*/
 Route::post('/productinsert','AdminController@productinsert');
 //Route::get('/productinsert','AdminController@productinsert');
-
 /*Product update get*/
 Route::get('/admin/productupdate/{id}','AdminController@productUpdateGet');
-
+/*Product update post*/
+Route::post('/productupdate','AdminController@productupdate');
 /*Product update get*/
-Route::put('/productupdate','AdminController@productupdate');
+Route::post('/productdelete','AdminController@productDelete');
 
 /*others*/
 Route::get('/admin/others','AdminController@others');
